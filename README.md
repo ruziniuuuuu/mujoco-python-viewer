@@ -17,32 +17,9 @@ pip install -e .
 
 ## Usage
 
-### How to render in a window?
-
-```py
-import mujoco
-import mujoco_viewer
-
-model = mujoco.MjModel.from_xml_path('humanoid.xml')
-data = mujoco.MjData(model)
-
-# create the viewer object
-viewer = mujoco_viewer.MujocoViewer(model, data)
-
-# simulate and render
-for _ in range(10000):
-    if viewer.is_alive:
-        mujoco.mj_step(model, data)
-        viewer.render()
-    else:
-        break
-
-# close
-viewer.close()
+```bash
+lwmj examples/humanoid.xml # 替换为你的mjcf文件路径
 ```
-
-The render should pop up and the simulation should be running.  
-A more complete example script can be found [here](https://github.com/rohanpsingh/mujoco-python-viewer/blob/main/examples/sample.py).  
 
 Double-click on a geom and hold `Ctrl` to apply forces (using right mouse button) and torques (using left mouse button).
 
@@ -50,25 +27,3 @@ Double-click on a geom and hold `Ctrl` to apply forces (using right mouse button
 
 Press `ESC` to quit.  
 Other key bindings are shown in the overlay menu (Press `H` or hold `Alt`).
-
-### How to render offscreen?
-
-```py
-import mujoco
-import mujoco_viewer
-
-model = mujoco.MjModel.from_xml_path('humanoid.xml')
-data = mujoco.MjData(model)
-
-viewer = mujoco_viewer.MujocoViewer(model, data, 'offscreen')
-mujoco.mj_forward(model, data)
-img = viewer.read_pixels(camid=2)
-## do something cool with img
-```
-
-## Optional Parameters
-
-- `title`: set the title of the window, for example: `viewer = mujoco_viewer.MujocoViewer(model, data, title='My Demo')` (defaults to `mujoco-python-viewer`).
-- `width`: set the window width, for example: `viewer = mujoco_viewer.MujocoViewer(model, data, width=300)` (defaults to full screen's width).
-- `height`: set the window height, for example: `viewer = mujoco_viewer.MujocoViewer(model, data, height=300)` (defaults to full screen's height).
-- `hide_menus`: set whether the overlay menus should be hidden or not (defaults to `False`).
