@@ -24,8 +24,11 @@ dependencies = [
     "pyyaml",
 ]
 
+[project.scripts]
+lwmj = "mujoco_viewer.main:main"
+
 [project.urls]
 Homepage = "https://github.com/ruziniuuuuu/mujoco-python-viewer.git"
 
 [tool.hatch.build.targets.wheel]
-packages = ["mujoco_python_viewer"]
+packages = ["mujoco_viewer"]
