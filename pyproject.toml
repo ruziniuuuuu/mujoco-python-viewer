@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mujoco-python-viewer"
+version = "0.1.4"
+authors = [
+    { name = "Rohan P. Singh", email = "rohan565singh@gmail.com" },
+]
+description = "Interactive renderer for MuJoCo Python"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "mujoco>=2.1.5",
+    "glfw>=2.5.0",
+    "imageio",
+    "pyyaml",
+]
+
+[project.urls]
+Homepage = "https://github.com/ruziniuuuuu/mujoco-python-viewer.git"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mujoco_python_viewer"]
