@@ -12,7 +12,7 @@ Some pointers on migration are available [here](https://mujoco.readthedocs.io/en
 ```sh
 git clone https://github.com/ruziniuuuuu/mujoco-python-viewer.git
 cd mujoco-python-viewer
-pip install -e .
+pip install .
 ```
 
 ## Usage
